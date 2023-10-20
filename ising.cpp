@@ -8,13 +8,13 @@
 using namespace std;
 
 
-const int N = 5;
+const int N = 10;
 const int counterMax = 10;
 const float J = 1;
 const int dimension = 2;
 const int totalSpins = pow(N,dimension);
 const double criticalTemperature = 2/(log(1+sqrt(2)));
-const int rows = 10;
+const int rows = 1000;
 
 #pragma pack(push, 1)
 struct BMPHeader {
@@ -265,13 +265,12 @@ int main()
 
     vector<float> temperatures = getTemperatures(lowTempLowCutoff, lowTempHighCutoff, highTempLowCutoff, highTempHighCutoff);
 
-    for (int l=0;l<rows;l++){
 
-        cout << temperatures[l] << " ";
-    }
-    cout << endl;
+
+
 
     vector<int> lattice(totalSpins,0);
+    initializeLattice(lattice);
     int labels[rows];
 
     // Set up output vector:
@@ -307,11 +306,17 @@ int main()
             flipSpins(lattice, cluster);
         }
 
+
+        /*
         for (int site = 0; site < totalSpins; site++){
             output[t][site] = int((lattice[site]+1)/2);
             cout << output[t][site] << ", ";
         }
         cout << endl;
+        */
+
+       cout << "Done!";
+
     }
 
 
