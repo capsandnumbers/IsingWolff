@@ -315,11 +315,16 @@ int main()
         cout << endl;
         */
 
-       cout << "Done!";
+       
 
     }
+    cout << "Done!";
 
+    string outAddress = "output.bmp";
 
+    createBMP(output, "output.bmp" );
+
+    std::cout << "BMP file created successfully." << std::endl;
 
 
     return 0;
